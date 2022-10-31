@@ -14,10 +14,6 @@ public class Ship : MonoBehaviour
     public bool IsVisible = false;
     //How many hits can the ship take
     public int HitsForShip = 2;
-    //Indicates the bottom left corner of the ship on the grid
-    public Vector2 ShipLocation;
-    //Indicates if the ship is across
-    public bool IsAcross;
     //Hits taken by the ship
     private int hitsTaken = 0;
 
