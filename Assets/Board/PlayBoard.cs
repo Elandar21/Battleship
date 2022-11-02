@@ -22,6 +22,8 @@ public class PlayBoard : MonoBehaviour
     private bool ShipsSunk = false;
     //Action on ships sunk
     public Action<bool> ShipSunkAction;
+    //Action on user click on board
+    public Action ClickAction;
     //Sets the ships
     public bool ShipsSet;
 
@@ -69,5 +71,14 @@ public class PlayBoard : MonoBehaviour
     private void ClickedTile(Transform tileTransform)
     {
         Debug.Log($"Tile has been clicked PlayBoard {(IsUserBoard?"User":"Opponent")}");
+    }
+
+    //Takes in a UI hit and set the hit/miss
+    public void CastUIHit(int index)
+    {
+        //Get the x and y coordinates from the tile index
+        //Cast ray from tile? 
+        //See if coordinate is in ship box
+        //If true, indicate a hit
     }
 }

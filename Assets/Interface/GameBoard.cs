@@ -17,6 +17,8 @@ public class GameBoard : MonoBehaviour
     public Ship[] ShipsToBePlayed;
     //Current state of the game
     private GameStateEnum gameState = GameStateEnum.Setup;
+    //Indicates if it is the players turn
+    private bool IsPlayerTurn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class GameBoard : MonoBehaviour
 
         userBoard.ShipSunkAction += BoardCleared;
         //userBoard.SetShips(ShipsToBePlayed);
+        userBoard.ClickAction += RegisterClickEvent;
     }
 
     // Update is called once per frame
@@ -41,6 +44,17 @@ public class GameBoard : MonoBehaviour
             if(dialog != null)
             {
                 dialog.text = "Click on a tile on the opponent board to shot at their ships.\nSink your opponents ships before they sink yours!\nGood Luck Hunting!";
+            }
+        }
+
+        if(gameState == GameStateEnum.Play)
+        {
+            if(!IsPlayerTurn)
+            {
+                //Execute AI
+                int x = (int)Random.value * 10;
+                int y = (int)Random.value * 10;
+                userBoard.CastUIHit(y*10+x);
             }
         }
     }
@@ -59,5 +73,11 @@ public class GameBoard : MonoBehaviour
                 dialog.text = "Next time...";
             }
         }
+    }
+
+    //User click event
+    private void RegisterClickEvent()
+    {
+        IsPlayerTurn = false;
     }
 }
