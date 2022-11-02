@@ -54,7 +54,7 @@ public class GameBoard : MonoBehaviour
                 //Execute AI
                 int x = (int)Random.value * 10;
                 int y = (int)Random.value * 10;
-                userBoard.CastUIHit(y*10+x);
+                userBoard.CastUIHit(x*40, y*40);
             }
         }
     }
@@ -66,11 +66,11 @@ public class GameBoard : MonoBehaviour
         {
             if(!IsUser)
             {
-                dialog.text = "You Won!";
+                dialog.text = "We have met the enemy and they are ours...  -Oliver Hazard Perry";
             }
             else
             {
-                dialog.text = "Next time...";
+                dialog.text = "I have not yet begun to fight! -John Paul Jones";
             }
         }
     }

@@ -77,9 +77,8 @@ public class PlayBoard : MonoBehaviour
     }
 
     //Takes in a UI hit and set the hit/miss
-    public void CastUIHit(int index)
+    public void CastUIHit(int x, int y)
     {
-        //Get the x and y coordinates from the tile index
         //Cast ray from tile? 
         //See if coordinate is in ship box
         //If true, indicate a hit
