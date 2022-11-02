@@ -71,6 +71,7 @@ public class PlayBoard : MonoBehaviour
     private void ClickedTile(Transform tileTransform)
     {
         Debug.Log($"Tile has been clicked PlayBoard {(IsUserBoard?"User":"Opponent")}");
+        ClickAction.Invoke();
     }
 
     //Takes in a UI hit and set the hit/miss
