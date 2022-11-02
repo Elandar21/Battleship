@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.253471, g: 0.3032735, b: 0.6037736, a: 0.392}
+  m_Color: {r: 0.35604307, g: 0.38817292, b: 0.5943396, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   - {fileID: 984386456018983810, guid: cc3837202b2d0c748ad9b076aa353126, type: 3}
   - {fileID: 7732683748498506863, guid: 674b6d8af887db440bf0c8d2247b78f9, type: 3}
   - {fileID: 2565779148420893104, guid: 5068b317c35fd224fa1f98b11850b66e, type: 3}
-  tiles:
+  Tiles:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -200,11 +200,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  tilePrefab: {fileID: 2078572552396257318, guid: 365f99bb0ec4c644586d782ec96a2111,
+  tilePrefab: {fileID: 195647505152894608, guid: 365f99bb0ec4c644586d782ec96a2111,
     type: 3}
   tileParent: {fileID: 7741531157787459680}
   shipParent: {fileID: 1177840962196712689}
   IsUserBoard: 0
+  ShipsSunk: 0
 --- !u!1 &966344419314225897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,7 +2737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7741531157787459680}
-  - component: {fileID: 8494318935999488059}
+  - component: {fileID: 7193431486460682350}
   m_Layer: 5
   m_Name: Tiles
   m_TagString: Untagged
@@ -2764,18 +2765,30 @@ RectTransform:
   m_AnchoredPosition: {x: 20, y: 20}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!156049354 &8494318935999488059
-Grid:
+--- !u!114 &7193431486460682350
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7743918975284031562}
   m_Enabled: 1
-  m_CellSize: {x: 40, y: 40, z: 1}
-  m_CellGap: {x: 1, y: 1, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 2
+  m_StartAxis: 0
+  m_CellSize: {x: 40, y: 40}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &7895511297036425146
 GameObject:
   m_ObjectHideFlags: 0

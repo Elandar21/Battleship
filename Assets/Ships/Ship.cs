@@ -9,14 +9,13 @@ public class Ship : MonoBehaviour
     //Ship image
     public GameObject background;
     //Indicates if the ship has been sunk
-    public bool IsSunk = false;
+    public bool IsNotSunk = true;
     //Indicates if the ship is visible
     public bool IsVisible = false;
     //How many hits can the ship take
     public int HitsForShip = 2;
     //Hits taken by the ship
     private int hitsTaken = 0;
-
 
     //Sets the visibilty of ship
     void Start()
@@ -30,15 +29,16 @@ public class Ship : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if(!IsSunk && HitsForShip >= hitsTaken)
+        if(IsNotSunk && HitsForShip >= hitsTaken)
         {
-            IsSunk = true;
+            IsNotSunk = false;
         }
     }
 
     //Updates if the ship has been hit
     public void TakesHit()
     {
+        //Need to get hit index
         hitsTaken++;
         Debug.Log("Hit");
     }
@@ -55,5 +55,11 @@ public class Ship : MonoBehaviour
             }
             rect.anchoredPosition = ShipLocation;
         }
+    }
+
+    //Indicates that the ship has been hit
+    public void Hit()
+    {
+        Debug.Log("Ship Click");
     }
 }

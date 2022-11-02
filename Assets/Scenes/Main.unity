@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32941177, g: 0.32941177, b: 0.32941177, a: 1}
+  m_Color: {r: 0.35057122, g: 0.35016912, b: 0.4056604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -619,6 +619,57 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 195647505152894608, guid: 365f99bb0ec4c644586d782ec96a2111,
+        type: 3}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: Ships.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928226, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928226, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.34505463
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928226, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3047348
       objectReference: {fileID: 0}
     - target: {fileID: 444922921193928255, guid: 382009b93fdbc024fb26f0eeab4e83df,
         type: 3}
@@ -1303,6 +1354,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
         type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 195647505152894608, guid: 365f99bb0ec4c644586d782ec96a2111,
+        type: 3}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
       propertyPath: IsUserBoard
       value: 1
       objectReference: {fileID: 0}
@@ -1571,7 +1628,8 @@ PrefabInstance:
       propertyPath: IsVisible
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8494318935999488059, guid: 382009b93fdbc024fb26f0eeab4e83df, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 382009b93fdbc024fb26f0eeab4e83df, type: 3}
 --- !u!224 &796095076 stripped
@@ -1693,8 +1751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -305}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -308}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1458109458
 GameObject:
@@ -1866,8 +1924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1832778639
 MonoBehaviour:
