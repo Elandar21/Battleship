@@ -40,8 +40,10 @@ public class PlayBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($"Ships sinking{string.Join(",",Ships.Select(ship => ship.IsNotSunk))}");
         if(!ShipsSunk && Ships.All(ship => !ship.IsNotSunk))
         {
+            Debug.Log("Ships Sunk");
             ShipsSunk = true;
             ShipSunkAction?.Invoke(IsUserBoard);
         }
@@ -71,7 +73,7 @@ public class PlayBoard : MonoBehaviour
     private void ClickedTile(Transform tileTransform)
     {
         Debug.Log($"Tile has been clicked PlayBoard {(IsUserBoard?"User":"Opponent")}");
-        ClickAction.Invoke();
+        ClickAction?.Invoke();
     }
 
     //Takes in a UI hit and set the hit/miss

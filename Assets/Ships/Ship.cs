@@ -29,7 +29,8 @@ public class Ship : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if(IsNotSunk && HitsForShip >= hitsTaken)
+        Debug.Log($"Ships {IsNotSunk} HitsForShip{HitsForShip >= hitsTaken}");
+        if(IsNotSunk && HitsForShip <= hitsTaken)
         {
             IsNotSunk = false;
         }
@@ -40,6 +41,7 @@ public class Ship : MonoBehaviour
     {
         //Need to get hit index
         hitsTaken++;
+        Debug.Log("Hit");
     }
 
     //Places the ship on the gameboard
