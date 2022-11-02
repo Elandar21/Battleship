@@ -31,14 +31,14 @@ public class PlayBoard : MonoBehaviour
         SetTiles();
         for(int i = 0; i < Ships.Length; i++)
         {
-            Ships[i].SetInteractable(IsUserBoard);
+            Ships[i].SetInteractable(!IsUserBoard);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!ShipsSunk && !Ships.Any(ship => ship != null && ship.IsNotSunk))
+        if(!ShipsSunk && Ships.All(ship => !ship.IsNotSunk))
         {
             ShipsSunk = true;
             ShipSunkAction?.Invoke(IsUserBoard);
@@ -54,7 +54,7 @@ public class PlayBoard : MonoBehaviour
             {
                 Tiles[y*10+x] = Instantiate<Tile>(tilePrefab, tileParent);
                 Tiles[y*10+x].ClickedEvent += ClickedTile;
-                Tiles[y*10+x].SetInteractable(IsUserBoard);
+                Tiles[y*10+x].SetInteractable(!IsUserBoard);
             }
         }
     }

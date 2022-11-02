@@ -40,7 +40,6 @@ public class Ship : MonoBehaviour
     {
         //Need to get hit index
         hitsTaken++;
-        Debug.Log("Hit");
     }
 
     //Places the ship on the gameboard
@@ -55,12 +54,6 @@ public class Ship : MonoBehaviour
             }
             rect.anchoredPosition = ShipLocation;
         }
-    }
-
-    //Indicates that the ship has been hit
-    public void Hit()
-    {
-        Debug.Log("Ship Click");
     }
 
     //Sets the tile to be interactable

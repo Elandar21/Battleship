@@ -26,10 +26,10 @@ public class GameBoard : MonoBehaviour
             dialog.text = "Click on the tile to place a ship,\nclick on a second tile for direction.";
         }
         opponentBoard.ShipSunkAction += BoardCleared;
-        opponentBoard.SetShips(ShipsToBePlayed);
+        //opponentBoard.SetShips(ShipsToBePlayed);
 
         userBoard.ShipSunkAction += BoardCleared;
-        userBoard.SetShips(ShipsToBePlayed);
+        //userBoard.SetShips(ShipsToBePlayed);
     }
 
     // Update is called once per frame

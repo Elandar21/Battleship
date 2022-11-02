@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 6515199187887641801, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hit
+      value: TakesHit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -406,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 6515199187887641801, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hit
+      value: TakesHit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -543,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 6515199187887641801, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hit
+      value: TakesHit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -680,7 +680,7 @@ PrefabInstance:
     - target: {fileID: 6515199187887641801, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hit
+      value: TakesHit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
