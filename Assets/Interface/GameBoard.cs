@@ -13,8 +13,8 @@ public class GameBoard : MonoBehaviour
     public PlayBoard opponentBoard;
     //Dialog box to give guidance to the user
     public TMP_Text dialog;
-    //Total ship count of the game
-    public int TotalShipCount = 5;
+    //Array of ships to be played
+    public Ship[] ShipsToBePlayed;
     //Current state of the game
     private GameStateEnum gameState = GameStateEnum.Setup;
 
@@ -25,15 +25,17 @@ public class GameBoard : MonoBehaviour
         {
             dialog.text = "Click on the tile to place a ship,\nclick on a second tile for direction.";
         }
-        
-        opponentBoard.ShipsSunk += BoardCleared;
-        userBoard.ShipsSunk += BoardCleared;
+        opponentBoard.ShipSunkAction += BoardCleared;
+        opponentBoard.SetShips(ShipsToBePlayed);
+
+        userBoard.ShipSunkAction += BoardCleared;
+        userBoard.SetShips(ShipsToBePlayed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameState == GameStateEnum.Setup && ShipsPlacedCount > TotalShipCount)
+        if(gameState == GameStateEnum.Setup &&  userBoard.ShipsSet && opponentBoard.ShipsSet)
         {
             gameState = GameStateEnum.Play;
             if(dialog != null)
