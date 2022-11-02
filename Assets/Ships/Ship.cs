@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //Details about the ship
 public class Ship : MonoBehaviour
 {
-    //Ship image
+    //Ship image background
     public GameObject background;
     //Indicates if the ship has been sunk
     public bool IsNotSunk = true;
@@ -61,5 +61,21 @@ public class Ship : MonoBehaviour
     public void Hit()
     {
         Debug.Log("Ship Click");
+    }
+
+    //Sets the tile to be interactable
+    public void SetInteractable(bool isInteractable)
+    {
+        Button[] buttons = GetComponentsInChildren<Button>();
+        if(buttons != null)
+        {
+            for(int i = 0; i < buttons.Length; i++)
+            {
+                if(buttons[i] != null)
+                {
+                    buttons[i].interactable = isInteractable;
+                }
+            }
+        }
     }
 }
