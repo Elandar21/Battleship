@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3803922, g: 0.3803922, b: 0.3803922, a: 0.392}
+  m_Color: {r: 0.3803922, g: 0.3803922, b: 0.3803922, a: 0.83137256}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4479219255759555854}
   - component: {fileID: 7328400684337455629}
   - component: {fileID: 7732683748498506863}
+  - component: {fileID: 5202049836455484887}
   m_Layer: 2
   m_Name: Submarine
   m_TagString: Untagged
@@ -139,9 +140,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 7634303004058415488}
+  HitTiles: []
   IsNotSunk: 1
-  IsVisible: 0
   HitsForShip: 3
+--- !u!61 &5202049836455484887
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902161544073260401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &6841814788172134373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 1310311827874471370, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1310311827874471370, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
@@ -512,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 1310311827874471370, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1310311827874471370, guid: 17b43625e6e616a48b9b450996cb13cf,
         type: 3}

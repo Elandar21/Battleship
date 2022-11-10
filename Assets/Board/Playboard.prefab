@@ -97,8 +97,8 @@ MonoBehaviour:
   - {fileID: 1792902912812091081, guid: 6d3a7842abb758d4491a4c95f585190e, type: 3}
   - {fileID: 2060303464362983133, guid: ab62389f74a8e8e40839ea5179288f28, type: 3}
   - {fileID: 984386456018983810, guid: cc3837202b2d0c748ad9b076aa353126, type: 3}
-  - {fileID: 7732683748498506863, guid: 674b6d8af887db440bf0c8d2247b78f9, type: 3}
   - {fileID: 2565779148420893104, guid: 5068b317c35fd224fa1f98b11850b66e, type: 3}
+  - {fileID: 7732683748498506863, guid: 674b6d8af887db440bf0c8d2247b78f9, type: 3}
   Tiles:
   - {fileID: 0}
   - {fileID: 0}
@@ -204,8 +204,7 @@ MonoBehaviour:
     type: 3}
   tileParent: {fileID: 7741531157787459680}
   shipParent: {fileID: 1177840962196712689}
-  IsUserBoard: 0
-  ShipsSunk: 0
+  IsUserBoard: 1
 --- !u!1 &966344419314225897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,8 +1318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 20, y: 20}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3834181862538012907
 GameObject:

@@ -8,69 +8,51 @@ public class Ship : MonoBehaviour
 {
     //Ship image background
     public GameObject background;
+    //Contains the hit buttons for the ship
+    public Tile[] HitTiles;
     //Indicates if the ship has been sunk
     public bool IsNotSunk = true;
-    //Indicates if the ship is visible
-    public bool IsVisible = false;
     //How many hits can the ship take
     public int HitsForShip = 2;
     //Hits taken by the ship
     private int hitsTaken = 0;
 
-    //Sets the visibilty of ship
-    void Start()
+    //Updates if the ship has been hit
+    public void TakesHit(Transform tile)
     {
-        if(background != null)
-        {
-            background.SetActive(IsVisible);
-        }
-    }
-
-    //Update is called once per frame
-    void Update()
-    {
-        Debug.Log($"Ships {IsNotSunk} HitsForShip{HitsForShip >= hitsTaken}");
+        hitsTaken++;
+        Debug.Log("Hit");
         if(IsNotSunk && HitsForShip <= hitsTaken)
         {
             IsNotSunk = false;
         }
     }
 
-    //Updates if the ship has been hit
-    public void TakesHit()
-    {
-        //Need to get hit index
-        hitsTaken++;
-        Debug.Log("Hit");
-    }
-
     //Places the ship on the gameboard
-    public void PlaceShip(Vector2 ShipLocation, bool IsAcross)
+    public void PlaceShip(Vector2 ShipLocation, bool IsVisible)
     {
         if(transform is RectTransform rect)
         {
-            if(IsAcross)
-            {
-                rect.rotation = Quaternion.AngleAxis(90, Vector3.forward);
-                ShipLocation.x -= 40;
-            }
-            rect.anchoredPosition = ShipLocation;
+            bool odd = HitsForShip%2 != 0;
+            rect.anchoredPosition = ShipLocation - new Vector2(-20,odd ? 20 : 0);
+        }
+
+        if(background != null)
+        {
+            background.SetActive(IsVisible);
         }
     }
 
     //Sets the tile to be interactable
     public void SetInteractable(bool isInteractable)
     {
-        Button[] buttons = GetComponentsInChildren<Button>();
-        if(buttons != null)
+        for(int i = 0; i < HitTiles.Length; i++)
         {
-            for(int i = 0; i < buttons.Length; i++)
-            {
-                if(buttons[i] != null)
-                {
-                    buttons[i].interactable = isInteractable;
-                }
-            }
+            HitTiles[i].SetInteractable(isInteractable);
+            if(isInteractable)
+                HitTiles[i].ClickedEvent += TakesHit;
+            else
+                HitTiles[i].ClickedEvent -= TakesHit;
         }
     }
 }
