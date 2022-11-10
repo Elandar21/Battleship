@@ -19,7 +19,7 @@ public class AI
         availablePositions = new List<Vector2>();
         for(int i = 0; i < 100; i++)
         {
-            availablePositions.Add(new Vector2((i%10)*40,(i/10)*40));
+            availablePositions.Add(new Vector2((i%10)*40,-(i/10)*40));
         }        
     }
 
