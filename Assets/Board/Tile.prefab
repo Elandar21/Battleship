@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6523627147301637546}
   TileImage: {fileID: 4200348143142254510}
-  clickedMaterial: {fileID: 2100000, guid: eb5c27141aea0974bb36ab29079efc46, type: 2}
+  ClickedMaterial: {fileID: 2100000, guid: eb5c27141aea0974bb36ab29079efc46, type: 2}

@@ -61,24 +61,18 @@ public class PlayBoard : MonoBehaviour
         Ships.Add(Instantiate(shipPrefab, shipParent));
         int LastIndex = Ships.Count() - 1;
         Ships[LastIndex].PlaceShip(position, IsUserBoard);
-        Ships[LastIndex].SetInteractable(!IsUserBoard);
+        Ships[LastIndex].SetInteractable(!IsUserBoard, false);
 
         return true;
     }
 
     //Indicates the tile has been clicked
-    private void ClickedTile(Transform tileTransform)
+    private void ClickedTile(Transform transform)
     {
-        RectTransform rect = tileTransform as RectTransform;
-        if(rect != null)
-        {
-            Debug.Log($"Tile has been clicked PlayBoard {(IsUserBoard?"User":"Opponent")}");
-            ClickAction?.Invoke(rect.anchoredPosition);
-        }
+        ClickAction?.Invoke((transform as RectTransform).anchoredPosition);
         
         if(currentState == GameStateEnum.Play)
         {
-            Debug.Log($"Ships sinking: {string.Join(",", Ships.Select(ship => !ship.IsNotSunk))}");
             if(!ShipsSunk && Ships.All(ship => !ship.IsNotSunk))
             {
                 Debug.Log("Ships Sunk");
@@ -88,20 +82,15 @@ public class PlayBoard : MonoBehaviour
         }
     }
 
-    //Takes in a UI hit and set the hit/miss
-    public void CastUIHit(int x, int y)
-    {
-        //Cast ray from tile? 
-        //See if coordinate is in ship box
-        //click a ship
-    }
-
     //Sets the ships and board to be interactable
     public void Interact(bool isInteractable)
     {
-        for(int y = 0; y < 100; y++)
+        for(int y = 0; y < Tiles.Length; y++)
         {
-            Tiles[y].SetInteractable(isInteractable && !IsUserBoard);
+            Tiles[y].SetInteractable(!IsUserBoard);
+            Tiles[y].SetDisplay(isInteractable);
+            if(y < Ships.Count)
+                Ships[y].SetInteractable(!IsUserBoard, isInteractable);
         }
     }
 }

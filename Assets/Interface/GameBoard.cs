@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 // Holds the basic UI calls for the game board
 public class GameBoard : MonoBehaviour
 {
+    //Casts a ray to the canvas 
+    public GraphicRaycaster Raycaster;
+    //EventSystem used with game
+    public EventSystem GameEventSystem;
     //Board containing the logic for the user
     public PlayBoard userBoard; 
     //Board containing the logic for the opponent
     public PlayBoard opponentBoard;
     //AI class
-    public AI ai = new AI();
+    public AI opponent = new AI();
     //Dialog box to give guidance to the user
     public TMP_Text dialog;
     //Array of ships to be played
@@ -21,6 +26,7 @@ public class GameBoard : MonoBehaviour
     private GameStateEnum gameState = GameStateEnum.Setup;
     //Ship Place index
     private int shipPlaceIndex = 0;
+    private Vector2 UserBoardLocation = new Vector2();
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,7 @@ public class GameBoard : MonoBehaviour
         userBoard.SetGameState(gameState);
         opponentBoard.SetGameState(gameState);
         userBoard.ClickAction += RegisterClickEvent;
+        UserBoardLocation = new Vector2(userBoard.shipParent.position.x, userBoard.shipParent.position.y);
     }
 
     //Indicates if the user won or lost
@@ -53,12 +60,11 @@ public class GameBoard : MonoBehaviour
     //User click event
     private void RegisterClickEvent(Vector2 position)
     {
-        Debug.Log($"Click in state: {gameState}");
         if(gameState == GameStateEnum.Setup)
         {
             if(userBoard.SetShips(ShipsToBePlayed[shipPlaceIndex], position))
             {
-                opponentBoard.SetShips(ShipsToBePlayed[shipPlaceIndex], ai.GetPosition());
+                opponentBoard.SetShips(ShipsToBePlayed[shipPlaceIndex], opponent.GetPosition());
                 shipPlaceIndex++;
             }
 
@@ -67,13 +73,18 @@ public class GameBoard : MonoBehaviour
                 StartGame();
             }
         }
+        else if(gameState == GameStateEnum.Play)
+        {
+            //Opponent click
+            CastOpponentHit();
+        }
     }
 
     //Sets the conditions to start the game
     private void StartGame()
     {
         gameState = GameStateEnum.Play;
-        ai.Reset();
+        opponent.Reset();
         userBoard.SetGameState(gameState);
         opponentBoard.SetGameState(gameState);
         userBoard.Interact(true);
@@ -86,5 +97,41 @@ public class GameBoard : MonoBehaviour
         opponentBoard.ShipSunkAction += BoardCleared;
         userBoard.ClickAction -= RegisterClickEvent;
         opponentBoard.ClickAction += RegisterClickEvent;
+    }
+
+    //Imitates a button click, but from the UI on the user board
+    private void CastOpponentHit()
+    {
+        if(Raycaster == null)
+        {
+            Debug.Log("GraphicRaycaster is not set on GameBoard");
+            return;
+        } 
+        
+        if(GameEventSystem == null)
+        {
+            Debug.Log("EventSystem has not been set on GameBoard");
+            return;
+        }
+        
+        PointerEventData pointData = new PointerEventData(GameEventSystem);
+        
+        Vector2 clickPos = UserBoardLocation + opponent.GetPosition();
+        pointData.position = clickPos;
+
+        Debug.Log($"Click Position: {clickPos}");
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        Raycaster.Raycast(pointData, results);
+
+        foreach(RaycastResult result in results)
+        {   
+            Button tile = result.gameObject.GetComponent<Button>();
+            if(tile != null)
+            {
+                tile.onClick.Invoke();
+                return;
+            }
+        }
     }
 }

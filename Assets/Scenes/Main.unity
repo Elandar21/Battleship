@@ -633,6 +633,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
         type: 3}
+      propertyPath: IsUserBoard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444922921193928225, guid: 382009b93fdbc024fb26f0eeab4e83df,
+        type: 3}
       propertyPath: Ships.Array.size
       value: 0
       objectReference: {fileID: 0}

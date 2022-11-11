@@ -19,7 +19,7 @@ public class AI
         availablePositions = new List<Vector2>();
         for(int i = 0; i < 100; i++)
         {
-            availablePositions.Add(new Vector2((i%10)*40,-(i/10)*40));
+            availablePositions.Add(new Vector2((i%10)*40, -(i/10)*40));
         }        
     }
 
@@ -27,8 +27,12 @@ public class AI
     public Vector2 GetPosition()
     {
         int index = (int)(Random.value * availablePositions.Count);
-        Vector2 tmpPos = availablePositions[index];
-        availablePositions.RemoveAt(index);
-        return tmpPos;
+        if(index > 0)
+        {
+            Vector2 tmpPos = availablePositions[index];
+            availablePositions.RemoveAt(index);
+            return tmpPos;
+        }
+        return new Vector2();
     } 
 }

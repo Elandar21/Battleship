@@ -34,7 +34,7 @@ public class Ship : MonoBehaviour
         if(transform is RectTransform rect)
         {
             bool odd = HitsForShip%2 != 0;
-            rect.anchoredPosition = ShipLocation - new Vector2(-20,odd ? 20 : 0);
+            rect.anchoredPosition = ShipLocation - new Vector2(-20, odd ? 20 : 0);
         }
 
         if(background != null)
@@ -44,8 +44,14 @@ public class Ship : MonoBehaviour
     }
 
     //Sets the tile to be interactable
-    public void SetInteractable(bool isInteractable)
+    public void SetInteractable(bool isInteractable, bool isDisplayed)
     {
+        if(HitTiles == null)
+        {
+            Debug.Log("No tiles set on ship");
+            return;
+        }
+
         for(int i = 0; i < HitTiles.Length; i++)
         {
             HitTiles[i].SetInteractable(isInteractable);
@@ -53,6 +59,7 @@ public class Ship : MonoBehaviour
                 HitTiles[i].ClickedEvent += TakesHit;
             else
                 HitTiles[i].ClickedEvent -= TakesHit;
+            HitTiles[i].SetDisplay(isDisplayed);
         }
     }
 }

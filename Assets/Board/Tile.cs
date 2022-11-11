@@ -20,7 +20,9 @@ public class Tile : MonoBehaviour
     public void Clicked()
     {
         ClickedEvent?.Invoke(transform);
-        if(displayClickedMaterial)
+        if(displayClickedMaterial 
+            && TileImage != null
+            && ClickedMaterial != null)
             TileImage.material = ClickedMaterial;
     }
 
@@ -29,6 +31,11 @@ public class Tile : MonoBehaviour
     {
         if(button != null)
             button.interactable = isInteractable;
-        displayClickedMaterial = isInteractable;
+    }
+
+    //Sets the display of clicked material
+    public void SetDisplay(bool isDisplayed)
+    {
+        displayClickedMaterial = isDisplayed;
     }
 }
