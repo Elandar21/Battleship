@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa5ac3a572866f4ca819f48a375f94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Raycaster: {fileID: 241121924}
+  GameEventSystem: {fileID: 1404557395}
   userBoard: {fileID: 796095078}
   opponentBoard: {fileID: 1879178502}
   dialog: {fileID: 1832778639}
